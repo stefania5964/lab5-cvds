@@ -308,7 +308,7 @@ cada 20 id cambia el userid
            return stringBuilder.append("</table>").toString();
        }
     }
-    
+    ```
 11.  Cree una clase que herede de la clase HttpServlet (similar a SampleServlet), y para la misma sobrescriba el método heredado `doGet`. Incluya la anotación `@Override` para verificar –en tiempo de compilación- que efectivamente se esté sobreescribiendo un método de las superclases.
     
 12.  Para indicar en qué URL el servlet interceptará las peticiones GET, agregue al método la anotación `@WebServlet`, y en dicha anotación, defina la propiedad `urlPatterns`, indicando la URL (que usted defina) a la cual se asociará el servlet.
