@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 import edu.eci.cvds.servlet.model.Todo;
+@WebServlet(
+        urlPatterns = "/Similar"
+)
 public class SimilarServlet extends HttpServlet{
     static final long serialVersionUID = 35L;
     @Override
