@@ -229,21 +229,24 @@ I. Para esto, cree un proyecto maven nuevo usando el arquetipo de aplicación We
 ![](./imagenes/11.png)
 
 7.  Busque el artefacto `gson` en el repositorio de `maven` y agregue la dependencia.
-![](./imagenes/9.png)
+![](./imagenes/12.png)
 8.  En el navegador revise la dirección [https://jsonplaceholder.typicode.com/todos/1](https://jsonplaceholder.typicode.com/todos/1). Intente cambiando diferentes números al final del `path` de la url.
 
-![](./imagenes/9.png)
+![](./imagenes/13.png)
 
-![](./imagenes/9.png)
+![](./imagenes/14.png)
 
-![](./imagenes/9.png)
+![](./imagenes/15.png)
 
-![](./imagenes/9.png)
-![](./imagenes/9.png)
+![](./imagenes/16.png)
+![](./imagenes/17.png)
 
-![](./imagenes/9.png)
+![](./imagenes/18.png)
+![](./imagenes/19.png)
+cada 20 id cambia el userid
 
 9.  Basado en la respuesta que le da el servicio del punto anterior, cree la clase `edu.eci.cvds.servlet.model.Todo` con un constructor vacío y los métodos `getter` y `setter` para las propiedades de los "To Dos" que se encuentran en la url indicada.
+![](./imagenes/20.png)
     
 10.  Utilice la siguiente clase para consumir el servicio que se encuentra en la dirección url del punto anterior:
     
