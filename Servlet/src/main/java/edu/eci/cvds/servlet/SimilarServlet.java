@@ -1,4 +1,5 @@
 package edu.eci.cvds.servlet;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Writer;
@@ -12,19 +13,50 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 import edu.eci.cvds.servlet.model.Todo;
+
 @WebServlet(
         urlPatterns = "/Similar"
 )
-public class SimilarServlet extends HttpServlet{
+public class SimilarServlet extends HttpServlet {
     static final long serialVersionUID = 35L;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Writer responseWriter = resp.getWriter();
-        Optional<String> optName = Optional.ofNullable(req.getParameter("name"));
-        String name = optName.isPresent() && !optName.get().isEmpty() ? optName.get() : "";
+        try{
+            Optional<String> optName = Optional.ofNullable(req.getParameter("id"));
+            if(optName.isPresent() && optName.get().isEmpty()){
+                throw new Exception();
+            };
+            int id = Integer.valueOf(optName.get());
+            Todo info = Service.getTodo(id);
+            List<Todo> todoList = new ArrayList<Todo>();
+            resp.setStatus(HttpServletResponse.SC_OK);
+            todoList.add(info);
+            responseWriter.write(Service.todosToHTMLTable(todoList));
+        }catch(Exception e){
+            if(e instanceof FileNotFoundException){
+                resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            }
+            else if(e instanceof MalformedParametersException){
+                resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            }
+            else if(e instanceof MalformedURLException){
+                resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            }
+            else{
+                resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            }
+        }
+    }
 
-        resp.setStatus(HttpServletResponse.SC_OK);
-        responseWriter.write("Hello" + name + "!");
-        responseWriter.flush();
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Optional<String> optId = Optional.ofNullable(req.getParameter("id"));
+        int id = optId.isPresent() ? Integer.parseInt(optId.get()) : -1;
+        Writer responseWriter = resp.getWriter();
+        responseWriter.write("El Id ingresado es: " + id);
     }
 }
+

@@ -309,10 +309,11 @@ cada 20 id cambia el userid
        }
     }
     ```
+![](./imagenes/21.png)
 11.  Cree una clase que herede de la clase HttpServlet (similar a SampleServlet), y para la misma sobrescriba el método heredado `doGet`. Incluya la anotación `@Override` para verificar –en tiempo de compilación- que efectivamente se esté sobreescribiendo un método de las superclases.
-    
+ 
 12.  Para indicar en qué URL el servlet interceptará las peticiones GET, agregue al método la anotación `@WebServlet`, y en dicha anotación, defina la propiedad `urlPatterns`, indicando la URL (que usted defina) a la cual se asociará el servlet.
-    
+ ![](./imagenes/25.png)  
 13.  Teniendo en cuenta las siguientes métodos disponibles en los objetos ServletRequest y ServletResponse recibidos por el método doGet:
     -   response.setStatus(N); <- Indica con qué código de error N se generará la respuesta. Usar la clase HttpServletResponse para indicar el código de respuesta.
     -   request.getParameter(param); <- Consulta el parámetro recibido, asociado al nombre ‘param’.
@@ -333,13 +334,13 @@ cada 20 id cambia el userid
         -   Si se genera la excepcion `MalformedURLException` devolver el código de `error interno en el servidor`
         -   Para cualquier otra excepcion, devolver el código equivalente a `requerimiento inválido`.
 
+![](./imagenes/24.png)
 14.  Una vez hecho esto, verifique el funcionamiento de la aplicación, recompile y ejecute la aplicación.
-    
 15.  Intente hacer diferentes consultas desde un navegador Web para probar las diferentes funcionalidades.
 
-![](./imagenes/9.png)
+![](./imagenes/22.png)
 
-![](./imagenes/9.png)
+![](./imagenes/23.png)
     
 
 # Parte III.
@@ -359,20 +360,14 @@ cada 20 id cambia el userid
         </body>
     </html>
     ```
-    
+ ![](./imagenes/26.png)   
 18.  En la página anterior, cree un formulario que tenga un campo para ingresar un número (si no ha manejado html antes, revise http://www.w3schools.com/html/ ) y un botón. El formulario debe usar como método ‘POST’, y como acción, la ruta relativa del último servlet creado (es decir la URL pero excluyendo ‘http://localhost:8080/’).
-    
+![](./imagenes/27.png)
 19.  Revise [este ejemplo de validación de formularios con javascript](http://www.w3schools.com/js/js_validation.asp) y agruéguelo a su formulario, de manera que -al momento de hacer ‘submit’- desde el browser se valide que el valor ingresado es un valor numérico.
-- Valido
 
-![](./imagenes/9.png)
+![](./imagenes/28.png)
 
-![](./imagenes/9.png)
 
-- Invalido
-![](./imagenes/9.png)
-
-![](./imagenes/9.png)
 
 20.  Recompile y ejecute la aplicación. Abra en su navegador en la página del formulario, y rectifique que la página hecha anteriormente sea mostrada. Ingrese los datos y verifique los resultados. Cambie el formulario para que ahora en lugar de POST, use el método GET . Qué diferencia observa?
 
