@@ -28,12 +28,19 @@
     -   Revise la página 36 del [RFC del protocolo HTTP](https://tools.ietf.org/html/rfc2616), sobre cómo realizar una petición GET. Con esto, solicite al servidor el recurso ‘sssss/abc.html’, usando la versión 1.0 de HTTP.
     -   Asegúrese de presionar ENTER dos veces después de ingresar el comando.
     -   Revise el resultado obtenido. 
+![](./imagenes/1_3.png)
     
     ¿Qué codigo de error sale?, revise el significado del mismo en [la lista de códigos de estado HTTP](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
-   
+  	
+ El codigo que salio fue el 301 lo que significa que Se movio el recurso de manera permanente
     -   ¿Qué otros códigos de error existen?, ¿En qué caso se manejarán?
     
-    
+    -400 Peticion incorrecta: El servidor no logro encontrar o procesar la solicitud por un error aparente del cliente como sintaxis, tamaño o enrutamiento
+    -401 No autorizado: es similar al error 403, se trata del error lanzado cuando la autentificacion no se proporciono o es incorrecta
+    -402 Pago rquerido: Este codigo esta reservado para uso futuro, en el cual se puedan notificar errores en pagos digitales, pero actualmente algunas empresas lo han utilizado para expresas otras cosas como Google debelopers que lo usa en caso de que el usuario haya superado el limite diario de solicitudes
+    -403 Prohibido: La solicitud realzada es correcta debido a que si tiene los datos validos y el servidor la entiende, pero el servidor la esta rechazando, esto puede darse por gestion de permisos, necesita una cuenta especifica o son acciones prohibidas
+    -404 No encontrado: No fue posible encontrar el recurso solicitado
+
 4.  Realice una nueva conexión con telnet, esta vez a:
     
     -   Host: www.httpbin.org
@@ -41,10 +48,11 @@
     -   Versión HTTP: 1.1
     
     Ahora, solicite (GET) el recurso _/html_. ¿Qué se obtiene como resultado?
-
+	![](./imagenes/1_4.png)
     
 
 ¡Muy bien!, ¡Acaba de usar del protocolo HTTP sin un navegador Web!. Cada vez que se usa un navegador, éste se conecta a un servidor HTTP, envía peticiones (del protocolo HTTP), espera el resultado de las mismas, y -si se trata de contenido HTML- lo interpreta y dibuja.
+luego copiamos y pegamos el contenido en archivo llamado contenido.txt
 
 5.  Seleccione el contenido `HTML` de la respuesta y copielo al cortapapeles `CTRL-SHIFT-C`. Ejecute el comando `wc` (_word count_) para contar palabras con la opción `-c` para contar el número de caracteres:
     
@@ -56,8 +64,16 @@
 
     
 
-    Claro está, las peticiones GET son insuficientes en muchos casos. Investigue: ¿Cuál es la diferencia entre los verbos GET y POST? ¿Qué otros tipos de peticiones existen?
-    
+    Claro está, las peticiones GET son insuficientes en muchos casos. Investigue: 
+	¿Cuál es la diferencia entre los verbos GET y POST? 
+    	
+	los dos son protocolos de http los cuales envian al servidor peticiones, Get permite obtener informacion
+	del servidor y POST envia informacion desde el cliente para que se procesada y se actualice
+	¿Qué otros tipos de peticiones existen?
+	PUT : Es usado para solicitar que el servidor almacene el cuerpo de la entidad en una ubicación específica dada por el URL.
+	DELETE : Es utilizada para solicitar al servidor que elimine un archivo en una ubicación específica dada por la URL.
+	CONNECT : Es usada para establecer una conexión de red con un servidor web mediante HTTP.
+	HEAD : pide una respuesta idéntica a la de una petición GET.
     1. En el tipo de petición GET los parámetros URL se guardan junto al URL mientras que con POST no. Por lo que POST ofrece mayor discreción debido a que tampoco se guardan los parámetros URL en el caché ni en el registro del servidor caso contrario en GET que se guardan sin cifrar.
     2. - OPTIONS
         - HEAD solo revisa los headers
@@ -82,13 +98,14 @@
     ```
     curl -i www.httpbin.org
     ```
-    
+    ![](./imagenes/1_6.png)
     ¿Cuáles son las diferencias con los diferentes parámetros?
     - curl -v: Make the operation more talkative
-
+	El comando curl -v nos permite obtener el encabezado de la solicitud y el número de la
+	respuesta obtenida.
     - curl -i: Include protocol response headers in the output
 
-
+	El comando curl -i incluye el encabezado HTTP en la salida. El encabezado HTTP incluye cosas como nombre del servidor, fecha del documento, versión HTTP
 
 # Parte II. - Haciendo una aplicación Web dinámica a bajo nivel.
 
