@@ -70,13 +70,11 @@ luego copiamos y pegamos el contenido en archivo llamado contenido.txt
 	los dos son protocolos de http los cuales envian al servidor peticiones, Get permite obtener informacion
 	del servidor y POST envia informacion desde el cliente para que se procesada y se actualice
 	¿Qué otros tipos de peticiones existen?
-	PUT : Es usado para solicitar que el servidor almacene el cuerpo de la entidad en una ubicación específica dada por el URL.
-	DELETE : Es utilizada para solicitar al servidor que elimine un archivo en una ubicación específica dada por la URL.
-	CONNECT : Es usada para establecer una conexión de red con un servidor web mediante HTTP.
-	HEAD : pide una respuesta idéntica a la de una petición GET.
-    1. En el tipo de petición GET los parámetros URL se guardan junto al URL mientras que con POST no. Por lo que POST ofrece mayor discreción debido a que tampoco se guardan los parámetros URL en el caché ni en el registro del servidor caso contrario en GET que se guardan sin cifrar.
-    2. - OPTIONS
+	
+     En el tipo de petición GET los parámetros URL se guardan junto al URL mientras que con POST no. Por lo que POST ofrece mayor discreción debido a que tampoco se guardan los parámetros URL en el caché ni en el registro del servidor caso contrario en GET que se guardan sin cifrar.
+    - OPTIONS
         - HEAD solo revisa los headers
+	- POST envia datos al programa ubicado en la url especifica
         - PUT deposita en la ubicación de destino
         - DELETE elimina en la ubicación de destino
         - CONNECT Esta petición es usada para establecer una conexión de red con un servidor web mediante HTTP.
@@ -148,6 +146,7 @@ I. Para esto, cree un proyecto maven nuevo usando el arquetipo de aplicación We
     
     Revise qué valor tiene el parámetro ‘urlPatterns’ de la anotación [@WebServlet](http://docs.oracle.com/javaee/6/tutorial/doc/bnafu.html), pues este indica qué URLs atiende las peticiones el servlet.
 	- aqui se puede acceder a SampleServlet a traves de el patron de URL: /helloServlet
+	- al solicitar algo a la pagina y si logra conectar se mostrara hello + lo que se le ponga
 2.  En el pom.xml, modifique la propiedad "packaging" con el valor "war". Agregue la siguiente dependencia:
     
     ```
