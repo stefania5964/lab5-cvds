@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Start Page</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script>
+  function validateForm() {
+    let x = document.forms["Form"]["id"].value;
+    if (isNaN(x) ||x == "") {
+      alert("id no es numero");
+    return false;
+    }
+  }
+</script>
+</head>
+<body>
+<h1>Hello World!</h1>
+<form name="Form" action = "/SimilarSampleServlet"  method="get">
+  <input type="text" name="id">
+  <button type="submit">Enviar</button>
+</form>
+
+</body>
+</html>

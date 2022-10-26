@@ -218,6 +218,7 @@ I. Para esto, cree un proyecto maven nuevo usando el arquetipo de aplicación We
        </plugins>
     </build>
     ```
+
 3.  Revise en el pom.xml para qué puerto TCP/IP está configurado el servidor embebido de Tomcat (ver sección de plugins).
 
 ![](./imagenes/5.png)
@@ -358,7 +359,7 @@ cada 20 id cambia el userid
 
 ![](./imagenes/23.png)
     
-
+![](./imagenes/29.png)
 # Parte III.
 
 16.  En su servlet, sobreescriba el método doPost, y haga la misma implementación del doGet.
