@@ -387,13 +387,10 @@ cada 20 id cambia el userid
 
 
 20.  Recompile y ejecute la aplicación. Abra en su navegador en la página del formulario, y rectifique que la página hecha anteriormente sea mostrada. Ingrese los datos y verifique los resultados. Cambie el formulario para que ahora en lugar de POST, use el método GET . Qué diferencia observa?
-
-![](./imagenes/9.png)
-
-![](./imagenes/9.png)
+![](./imagenes/30.png)
 21.  ¿Qué se está viendo? Revise cómo están implementados los métodos de la clase Service.java para entender el funcionamiento interno.
-- Con POST se da un valor y la pagina da una respuesta determinada, con GET se obtiene la tabla con la información. 
-
+-Ninguna
+![](./imagenes/31.png)
 # Parte IV. - Frameworks Web MVC – Java Server Faces / Prime Faces
 
 En este ejercicio, usted va a desarrollar una aplicación Web basada en el marco JSF, y en una de sus implementaciones más usadas: [PrimeFaces](http://primefaces.org/). Se trata de un juego en línea para adivinar un número, en el que el ganador, si atina en la primera oportunidad, recibe `$100.000`. Luego, por cada intento fallido, el premio se reduce en `$10.000`.
@@ -416,12 +413,14 @@ En este ejercicio, usted va a desarrollar una aplicación Web basada en el marco
        <welcome-file>faces/index.jsp</welcome-file>
     </welcome-file-list>
     ```
-    
+   ![](./imagenes/32.png) 
 3.  Revise cada una de las configuraciones agregadas anteriormente para saber qué hacen y por qué se necesitan. Elimine las que no se necesiten.
+```
     - JavaEE-API: Es un estándar de mensajería que permite que los componentes de la aplicación Java EE creen, envíen, reciban y lean mensajes.
     - Jsf-api: Es un marco de interfaz de usuario basado en componentes del lado del servidor.
     - Jsf-impl: Contienen la implementación con código funcional y no clases abstractas e interfaces
     - jstl: Contiene etiquetas para el html que permiten encapsular determinadas acciones.
+```
 4.  Ahora, va a crear un `Backing-Bean` de sesión, el cual, para cada usuario, mantendrá de lado del servidor las siguientes propiedades:
     
     1.  El número que actualmente debe adivinar (debe ser un número aleatorio).
