@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28873635-56cc-48d7-af84-748178bc5022" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/servlet/BackingBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/servlet/BackingBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/guess.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/guess.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Servlet.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/Servlet.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2022-10-26" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2022-10-26" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

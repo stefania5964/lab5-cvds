@@ -423,13 +423,13 @@ En este ejercicio, usted va a desarrollar una aplicación Web basada en el marco
 ```
 4.  Ahora, va a crear un `Backing-Bean` de sesión, el cual, para cada usuario, mantendrá de lado del servidor las siguientes propiedades:
     
-    1.  El número que actualmente debe adivinar (debe ser un número aleatorio).
+    a.  El número que actualmente debe adivinar (debe ser un número aleatorio).
         
-    2.  El número de intentos realizados.
+    b.  El número de intentos realizados.
         
-    3.  El premio acumulado hasta el momento.
+    c.  El premio acumulado hasta el momento.
         
-    4.  El estado del juego, que sería una cadena de texto que indica si ya ganó o no, y si ganó de cuanto es el premio.
+    d.  El estado del juego, que sería una cadena de texto que indica si ya ganó o no, y si ganó de cuanto es el premio.
         
     
     Para hacer esto, cree una clase que tenga:
@@ -443,6 +443,7 @@ En este ejercicio, usted va a desarrollar una aplicación Web basada en el marco
     A la implementación de esta clase, agregue los siguientes métodos:
     -   `guess`: Debe recibir un intento de adivinanza y realizar la lógica para saber si se adivinó, de tal forma que se ajuste el valor del premio y/o actualice el estado del juego.
     -   `restart`: Debe volver a iniciar el juego (inicializar de nuevo el número a adivinar, y restaurar el premio a su valor original).
+![](./imagenes/35.png) 
 5.  Cree una página XHTML, de nombre `guess.xhtml` (debe quedar en la ruta `src/main/webapp`). Revise en la [página 13 del manual de PrimeFaces](http://www.primefaces.org/docs/guide/primefaces_user_guide_5_2.pdf), qué espacios de nombres XML requiere una página de PrimeFaces y cuál es la estructura básica de la misma.
     
 6.  Con base en lo anterior, agregue un formulario con identificador `guess_form` con el siguiente contenido básico:
@@ -488,7 +489,7 @@ En este ejercicio, usted va a desarrollar una aplicación Web basada en el marco
         ```
         <p:commandButton update="…" actionListener="…">
         ```
-        
+        ![](./imagenes/36.png) 
 9.  Para verificar el funcionamiento de la aplicación, agregue el plugin tomcat-runner dentro de los plugins de la fase de construcción (build). Tenga en cuenta que en la configuración del plugin se indica bajo que ruta quedará la aplicación:
     
     1.  mvn package
@@ -503,30 +504,21 @@ En este ejercicio, usted va a desarrollar una aplicación Web basada en el marco
 
         1.  Abra la aplicación en un explorador. Realice algunas pruebas con el juego e intente adivinar el número.
 
-![](./imagenes/9.png)
 
-![](./imagenes/9.png)
-
-![](./imagenes/9.png)
-
-![](./imagenes/9.png)
 
 
      2.  Abra la aplicación en dos computadores diferentes. Si no dispone de uno, hágalo en dos navegadores diferentes (por ejemplo Chrome y Firefox; incluso se puede en un único navegador usando una ventana normal y una ventana de incógnito / privada). Haga cinco intentos en uno, y luego un intento en el otro. ¿Qué valor tiene cada uno?
      Los valores de los intentos no son independientes.
 
-![](./imagenes/9.png)
-
-![](./imagenes/9.png)
-
+![](./imagenes/33.png)
+![](./imagenes/34.png)
     3.  Aborte el proceso de Tomcat-runner haciendo Ctrl+C en la consola, y modifique el código del backing-bean de manera que use la anotación @SessionScoped en lugar de @ApplicationScoped. Reinicie la aplicación y repita el ejercicio anterior.
-        -   ¿Coinciden los valores del premio?.
+        -   ¿Coinciden los valores del premio?.no
         -   Dado la anterior, ¿Cuál es la diferencia entre los backing-beans de sesión y los de aplicación?
         Con los de sesion cada pagina es indepentdiente.
 
-![](./imagenes/9.png)
-
-![](./imagenes/9.png)
+![](./imagenes/37.png)
+![](./imagenes/38.png)
 
     4.  Por medio de las herramientas de desarrollador del explorador (Usando la tecla "F12" en la mayoría de exploradores):
         -   Ubique el código HTML generado por el servidor.
@@ -537,40 +529,11 @@ En este ejercicio, usted va a desarrollar una aplicación Web basada en el marco
         -   Actualice la página. Los cambios de estilos realizados desaparecen, pues se realizaron únicamente en la visualización, la respuesta del servidor sigue siendo la misma, ya que el contenido de los archivos allí almacenados no se ha modificado.
         -   Revise qué otros cambios se pueden realizar y qué otra información se puede obtener de las herramientas de desarrollador.
 
-    ```
-    <html xmlns="http://www.w3.org/1999/xhtml"><head></head><body>
-        <h1>Juego adivinanza</h1>
-<form id="guess_form" name="guess_form" method="post" action="/faces/guess.xhtml" enctype="application/x-www-form-urlencoded">
-<input type="hidden" name="guess_form" value="guess_form">
-
-            <label><h1>Ingrese numero entre 1 y 20</h1></label><br><input id="guess_form:num" name="guess_form:num" type="text" value="0" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all " aria-required="true" placeholder="Numero entre 1 y 20" size="20"><script id="guess_form:num_s" type="text/javascript">$(function(){PrimeFaces.cw("InputText","widget_guess_form_num",{id:"guess_form:num"});});</script>
-            <br><button id="guess_form:j_idt7" name="guess_form:j_idt7" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="PrimeFaces.ab({s:&quot;guess_form:j_idt7&quot;,f:&quot;guess_form&quot;,u:&quot;guess_form&quot;});return false;" type="submit"><span class="ui-button-text ui-c">Enviar</span></button><script id="guess_form:j_idt7_s" type="text/javascript">$(function(){PrimeFaces.cw("CommandButton","widget_guess_form_j_idt7",{id:"guess_form:j_idt7"});});</script>
-            <p><b>Premio Actual</b></p><label id="guess_form:j_idt9" class="ui-outputlabel ui-widget">100000</label>
-            <br>
-            <p><b>Intentos</b></p><label id="guess_form:j_idt11" class="ui-outputlabel ui-widget">0</label>
-            <br>
-            <p><b>Numero</b></p><label id="guess_form:j_idt13" class="ui-outputlabel ui-widget">2</label>
-            <br>
-            <p><b>Estado de juego</b></p><label id="guess_form:j_idt15" class="ui-outputlabel ui-widget"></label>
-            <br><button id="guess_form:j_idt17" name="guess_form:j_idt17" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="PrimeFaces.ab({s:&quot;guess_form:j_idt17&quot;,f:&quot;guess_form&quot;,u:&quot;guess_form&quot;});return false;" type="submit"><span class="ui-button-text ui-c">Reset</span></button><script id="guess_form:j_idt17_s" type="text/javascript">$(function(){PrimeFaces.cw("CommandButton","widget_guess_form_j_idt17",{id:"guess_form:j_idt17"});});</script><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:0" value="-9189921226440907258:1382762079137429313" autocomplete="off">
-</form>
-    
-</body></html>
-    ```
-11.  Para facilitar los intentos del usuario, se agregará una lista de los últimos intentos fallidos realizados:
-    
-    1.  Agregue en el `Backing-Bean`, una propiedad que contenga una lista de intentados realizados.
-        
-    2.  Agregue cada intento a la lista, cuando se ejecute el método `guess`.
-        
-    3.  Cuando se reinicie el juego, limpie el contenido de la lista.
-        
-    4.  Busque cómo agregar una tabla a la página, cuyo contenido sea los últimos intentos realizados.
-        
-
-## Entrega
-
--   Dentro del directorio coloque un archivo de texto `integrantes.txt` con el nombre de los integrantes del taller (máximo 2).
+![](./imagenes/39.png)
+en este caso el numero a adivinar es el 45
+![](./imagenes/40.png)
+-al deshabilitar el style en la pantalla se muestra el numero a adivinar pero al reiniciar el juego vuelve a como estaba
+![](./imagenes/41.png)
 -   configurar el archivo `.gitignore` para excluir del repositorio los archivos no relevantes.
 -   Realizar un diagrama de clases del proyecto.
 -   En un archivo de texto coloque las respuestas a las preguntas de la parte 3 (diferencias encontradas entre usar un GET o un POST, qué otros métodos similares existen y para qué es cada uno, información del punto 20 y 21).

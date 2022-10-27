@@ -76,7 +76,7 @@ public class BackingBean {
     }
     public void restart() {
         Random numberRandom = new Random();
-        number = numberRandom.nextInt(15);
+        number = numberRandom.nextInt(100);
         prize = 100000;
         attemps = 0;
         gameState = "Jugando";
