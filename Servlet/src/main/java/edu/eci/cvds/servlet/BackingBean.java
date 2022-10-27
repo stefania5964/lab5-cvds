@@ -6,8 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.*;
 @ManagedBean(name = "guessBean")
-@ApplicationScoped
-
+@SessionScoped
 public class BackingBean {
     private int number;
     private int attemps;
@@ -69,14 +68,15 @@ public class BackingBean {
         } else if (prize == 0){
             gameState = "Perdiste";
         }else {
+            gameState = "Fallo";
             NumberOfAttempts.add(guess);
             prize -= 10000;
-            attemps ++;
+            attemps +=1;
         }
     }
     public void restart() {
         Random numberRandom = new Random();
-        number = numberRandom.nextInt(100);
+        number = numberRandom.nextInt(15);
         prize = 100000;
         attemps = 0;
         gameState = "Jugando";
