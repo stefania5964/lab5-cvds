@@ -5,7 +5,7 @@
 
 ## Introducción a proyectos Web
 
-#### Stefania Giraldo Buitrago
+#### Stefania Giraldo Buitrago-Daniel Builes
 
 # Parte I. - Jugando a ser un cliente HTTP
 
